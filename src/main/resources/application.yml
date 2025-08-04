@@ -4,3 +4,20 @@ fineract:
     tenant: default
     username: mifos
     password: password
+    # Configurable locale and date format
+    locale: en
+    dateFormat: dd MMMM yyyy
+
+# RestTemplate configuration
+rest:
+  connection:
+    timeout: 30000  # Connection timeout in milliseconds (30 seconds)
+  read:
+    timeout: 60000  # Read timeout in milliseconds (60 seconds)
+
+# Retry configuration
+retry:
+  max-attempts: 3
+  initial-interval: 1000  # Initial backoff interval in milliseconds
+  multiplier: 2.0  # Backoff multiplier
+  max-interval: 10000  # Maximum backoff interval in milliseconds

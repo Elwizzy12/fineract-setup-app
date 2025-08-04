@@ -1,64 +1,70 @@
 package com.example.fineractsetup.config;
 
-import org.apache.http.conn.ssl.NoopHostnameVerifier;
-import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
-import org.apache.http.conn.ssl.TrustSelfSignedStrategy;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.ssl.SSLContextBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.core.io.Resource;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
+import org.springframework.http.client.ClientHttpRequestFactory;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
+import org.springframework.web.client.DefaultResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import javax.net.ssl.SSLContext;
-import java.io.File;
-import java.io.IOException;
+import org.springframework.beans.factory.annotation.Value;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+import javax.net.ssl.SSLContext;
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
+import org.apache.http.conn.ssl.TrustStrategy;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 
 @Configuration
 public class RestTemplateConfig {
     private static final Logger logger = LoggerFactory.getLogger(RestTemplateConfig.class);
     
-    @Bean
-    public RestTemplate restTemplate() {
-        try {
-            // Create a trust-all SSL context that doesn't validate certificates
-            // Note: This is a temporary solution for development purposes only
-            // In production, proper certificate validation should be implemented
-            logger.info("Creating trust-all SSL context for development");
-            
-            SSLContext sslContext = SSLContextBuilder
-                    .create()
-                    .loadTrustMaterial(null, (chain, authType) -> true)
-                    .build();
-            
-            SSLConnectionSocketFactory socketFactory = new SSLConnectionSocketFactory(
-                    sslContext, 
-                    NoopHostnameVerifier.INSTANCE);
-            
-            CloseableHttpClient httpClient = HttpClients.custom()
-                    .setSSLSocketFactory(socketFactory)
-                    .build();
-            
-            HttpComponentsClientHttpRequestFactory factory = 
-                    new HttpComponentsClientHttpRequestFactory(httpClient);
-            
-            logger.info("SSL configuration successful");
-            return new RestTemplate(factory);
-        } catch (Exception e) {
-            // Log the error but fall back to default RestTemplate if certificate loading fails
-            logger.error("Failed to configure SSL with certificate: {}", e.getMessage(), e);
-            logger.warn("Falling back to default RestTemplate without SSL configuration");
-            return new RestTemplate();
-        }
+    @Value("${rest.connection.timeout:30000}")
+    private int connectionTimeout;
+    
+    @Value("${rest.read.timeout:60000}")
+    private int readTimeout;
+    
+    @Bean 
+    public RestTemplate restTemplate() throws KeyStoreException, NoSuchAlgorithmException, KeyManagementException {
+        logger.info("Configuring RestTemplate with connection timeout: {}ms, read timeout: {}ms, SSL validation disabled", 
+                connectionTimeout, readTimeout);
+        
+        // Create a trust strategy that accepts all certificates
+        TrustStrategy acceptingTrustStrategy = (X509Certificate[] chain, String authType) -> true;
+        
+        // Create SSL context with trust strategy
+        SSLContext sslContext = org.apache.http.ssl.SSLContexts.custom()
+                .loadTrustMaterial(null, acceptingTrustStrategy)
+                .build();
+        
+        // Create SSL connection socket factory
+        SSLConnectionSocketFactory csf = new SSLConnectionSocketFactory(sslContext);
+        
+        // Create HTTP client with SSL socket factory
+        CloseableHttpClient httpClient = HttpClients.custom()
+                .setSSLSocketFactory(csf)
+                .build();
+        
+        // Create request factory with HTTP client
+        HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory();
+        requestFactory.setHttpClient(httpClient);
+        requestFactory.setConnectTimeout(connectionTimeout);
+        requestFactory.setReadTimeout(readTimeout);
+        
+        // Create RestTemplate with request factory
+        RestTemplate restTemplate = new RestTemplate(requestFactory);
+        
+        // Configure error handler
+        restTemplate.setErrorHandler(new DefaultResponseErrorHandler());
+        
+        logger.info("RestTemplate configured to ignore SSL certificate validation");
+        
+        return restTemplate;
     }
 }

@@ -1,0 +1,237 @@
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------------------< com.example:microfinance-init >--------------------
+[INFO] Building microfinance-init 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- maven-clean-plugin:3.2.0:clean (default-clean) @ microfinance-init ---
+[INFO] Deleting /home/hans-chia/dev/fineract-setup-app/target
+[INFO]
+[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ microfinance-init ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 10 resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ microfinance-init ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/hans-chia/dev/fineract-setup-app/target/classes
+[INFO]
+[INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ microfinance-init ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /home/hans-chia/dev/fineract-setup-app/src/test/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ microfinance-init ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ microfinance-init ---
+[INFO] No tests to run.
+[INFO]
+[INFO] --- maven-jar-plugin:3.2.2:jar (default-jar) @ microfinance-init ---
+[INFO] Building jar: /home/hans-chia/dev/fineract-setup-app/target/microfinance-init-1.0-SNAPSHOT.jar
+[INFO]
+[INFO] --- spring-boot-maven-plugin:2.7.18:repackage (repackage) @ microfinance-init ---
+[INFO] Replacing main artifact with repackaged archive
+[INFO]
+[INFO] --- spring-boot-maven-plugin:2.7.18:repackage (default) @ microfinance-init ---
+[INFO] Replacing main artifact with repackaged archive
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.185 s
+[INFO] Finished at: 2025-08-04T11:14:34+01:00
+[INFO] ------------------------------------------------------------------------
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::               (v2.7.18)
+2025-08-04 11:14:34.954  INFO 870884 --- [           main] c.e.f.FineractSetupAppApplication        : Starting FineractSetupAppApplication v1.0-SNAPSHOT using Java 17.0.11 on hans-chia-ws with PID 870884 (/home/hans-chia/dev/fineract-setup-app/target/microfinance-init-1.0-SNAPSHOT.jar started by hans-chia in /home/hans-chia/dev/fineract-setup-app)
+2025-08-04 11:14:34.956  INFO 870884 --- [           main] c.e.f.FineractSetupAppApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-08-04 11:14:35.814  INFO 870884 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-08-04 11:14:35.823  INFO 870884 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-04 11:14:35.823  INFO 870884 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-08-04 11:14:35.899  INFO 870884 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-04 11:14:35.899  INFO 870884 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 906 ms
+2025-08-04 11:14:35.965  INFO 870884 --- [           main] c.e.f.config.RestTemplateConfig          : Configuring RestTemplate with connection timeout: 30000ms, read timeout: 60000ms, SSL validation disabled
+2025-08-04 11:14:36.096  INFO 870884 --- [           main] c.e.f.config.RestTemplateConfig          : RestTemplate configured to ignore SSL certificate validation
+2025-08-04 11:14:36.366  INFO 870884 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-08-04 11:14:36.377  INFO 870884 --- [           main] c.e.f.FineractSetupAppApplication        : Started FineractSetupAppApplication in 1.759 seconds (JVM running for 2.004)
+2025-08-04 11:14:36.380  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Starting microfinance data import process...
+2025-08-04 11:14:36.380  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Using Fineract URL: https://localhost/fineract-provider/api/v1
+2025-08-04 11:14:36.380  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Configuration: locale=en, dateFormat=dd MMMM yyyy, maxRetryAttempts=3
+2025-08-04 11:14:36.380  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Processing file: data/LoanProducts.xlsx with endpoint: loanproducts
+2025-08-04 11:14:36.381  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Using original file directly: /home/hans-chia/dev/fineract-setup-app/src/main/resources/data/LoanProducts.xlsx
+2025-08-04 11:14:36.381  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Processing file: LoanProducts.xlsx
+2025-08-04 11:14:36.381  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Uploading file: LoanProducts.xlsx (original: data/LoanProducts.xlsx) to endpoint: loanproducts
+2025-08-04 11:14:36.381  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Validating Excel file using Apache POI
+2025-08-04 11:14:36.769  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Excel file contains 1 sheets
+2025-08-04 11:14:36.770  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Sheet 0: 'Loans' contains 4 rows
+2025-08-04 11:14:36.770  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Excel file validation successful
+2025-08-04 11:14:36.772  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : File extension: .xlsx
+2025-08-04 11:14:36.773  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Setting Content-Disposition filename: LoanProducts.xlsx
+2025-08-04 11:14:36.774  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Content-Type being used: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+2025-08-04 11:14:36.774  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Sending request to: https://localhost/fineract-provider/api/v1/loanproducts
+2025-08-04 11:14:36.788  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: LoanProducts.xlsx
+2025-08-04 11:14:36.789  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: LoanProducts.xlsx
+2025-08-04 11:14:36.792  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: LoanProducts.xlsx
+2025-08-04 11:14:36.923 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : HTTP Client Error while uploading data/LoanProducts.xlsx: 415 : "<!doctype html><html lang="en"><head><title>HTTP Status 415 – Unsupported Media Type</title><style type="text/css">body {font-family:Tahoma,Arial,sans-serif;} h1, h2, h3, b {color:white;background-color:#525D76;} h1 {font-size:22px;} h2 {font-size:16px;} h3 {font-size:14px;} p {font-size:12px;} a {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 415 – Unsupported Media Type</h1></body></html>"
+2025-08-04 11:14:36.924 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Response body: <!doctype html><html lang="en"><head><title>HTTP Status 415 – Unsupported Media Type</title><style type="text/css">body {font-family:Tahoma,Arial,sans-serif;} h1, h2, h3, b {color:white;background-color:#525D76;} h1 {font-size:22px;} h2 {font-size:16px;} h3 {font-size:14px;} p {font-size:12px;} a {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 415 – Unsupported Media Type</h1></body></html>
+2025-08-04 11:14:36.924 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Request details: endpoint=loanproducts
+2025-08-04 11:14:36.924  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Processing file: data/Users.xlsx with endpoint: users/uploadtemplate
+2025-08-04 11:14:36.924  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Using original file directly: /home/hans-chia/dev/fineract-setup-app/src/main/resources/data/Users.xlsx
+2025-08-04 11:14:36.925  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Processing file: Users.xlsx
+2025-08-04 11:14:36.925  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Uploading file: Users.xlsx (original: data/Users.xlsx) to endpoint: users/uploadtemplate
+2025-08-04 11:14:36.925  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Validating Excel file using Apache POI
+2025-08-04 11:14:36.943  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Excel file contains 1 sheets
+2025-08-04 11:14:36.943  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Sheet 0: 'Users' contains 3 rows
+2025-08-04 11:14:36.943  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Excel file validation successful
+2025-08-04 11:14:36.943  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : File extension: .xlsx
+2025-08-04 11:14:36.943  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Setting Content-Disposition filename: Users.xlsx
+2025-08-04 11:14:36.944  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Content-Type being used: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+2025-08-04 11:14:36.944  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Sending request to: https://localhost/fineract-provider/api/v1/users/uploadtemplate
+2025-08-04 11:14:36.945  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: Users.xlsx
+2025-08-04 11:14:36.945  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: Users.xlsx
+2025-08-04 11:14:36.946  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: Users.xlsx
+2025-08-04 11:14:36.961 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : HTTP Client Error while uploading data/Users.xlsx: 403 : "{"developerMessage":"Request was understood but caused a domain rule violation.","httpStatusCode":"403","defaultUserMessage":"Errors contain reason for domain rule violation.","userMessageGlobalisationCode":"validation.msg.domain.rule.violation","errors":[{"defaultUserMessage":"Uploaded file extension is not recognized.","parameterName":"id","developerMessage":"Uploaded file extension is not recognized.","userMessageGlobalisationCode":"error.msg.invalid.file.extension","args":[]}]}"
+2025-08-04 11:14:36.961 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Response body: {"developerMessage":"Request was understood but caused a domain rule violation.","httpStatusCode":"403","defaultUserMessage":"Errors contain reason for domain rule violation.","userMessageGlobalisationCode":"validation.msg.domain.rule.violation","errors":[{"defaultUserMessage":"Uploaded file extension is not recognized.","parameterName":"id","developerMessage":"Uploaded file extension is not recognized.","userMessageGlobalisationCode":"error.msg.invalid.file.extension","args":[]}]}
+2025-08-04 11:14:36.961 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Request details: endpoint=users/uploadtemplate
+2025-08-04 11:14:36.961 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Error details from API: {"developerMessage":"Request was understood but caused a domain rule violation.","httpStatusCode":"403","defaultUserMessage":"Errors contain reason for domain rule violation.","userMessageGlobalisationCode":"validation.msg.domain.rule.violation","errors":[{"defaultUserMessage":"Uploaded file extension is not recognized.","parameterName":"id","developerMessage":"Uploaded file extension is not recognized.","userMessageGlobalisationCode":"error.msg.invalid.file.extension","args":[]}]}
+2025-08-04 11:14:36.961  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Processing file: data/ChartOfAccounts.xlsx with endpoint: glaccounts/uploadtemplate
+2025-08-04 11:14:36.962  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Using original file directly: /home/hans-chia/dev/fineract-setup-app/src/main/resources/data/ChartOfAccounts.xlsx
+2025-08-04 11:14:36.962  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Processing file: ChartOfAccounts.xlsx
+2025-08-04 11:14:36.962  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Uploading file: ChartOfAccounts.xlsx (original: data/ChartOfAccounts.xlsx) to endpoint: glaccounts/uploadtemplate
+2025-08-04 11:14:36.962  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Validating Excel file using Apache POI
+2025-08-04 11:14:36.980  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Excel file contains 1 sheets
+2025-08-04 11:14:36.980  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Sheet 0: 'ChartOfAccounts' contains 6 rows
+2025-08-04 11:14:36.980  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Excel file validation successful
+2025-08-04 11:14:36.981  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : File extension: .xlsx
+2025-08-04 11:14:36.981  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Setting Content-Disposition filename: ChartOfAccounts.xlsx
+2025-08-04 11:14:36.981  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Content-Type being used: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+2025-08-04 11:14:36.981  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Sending request to: https://localhost/fineract-provider/api/v1/glaccounts/uploadtemplate
+2025-08-04 11:14:36.982  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: ChartOfAccounts.xlsx
+2025-08-04 11:14:36.982  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: ChartOfAccounts.xlsx
+2025-08-04 11:14:36.983  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: ChartOfAccounts.xlsx
+2025-08-04 11:14:36.997 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : HTTP Client Error while uploading data/ChartOfAccounts.xlsx: 403 : "{"developerMessage":"Request was understood but caused a domain rule violation.","httpStatusCode":"403","defaultUserMessage":"Errors contain reason for domain rule violation.","userMessageGlobalisationCode":"validation.msg.domain.rule.violation","errors":[{"defaultUserMessage":"Uploaded file extension is not recognized.","parameterName":"id","developerMessage":"Uploaded file extension is not recognized.","userMessageGlobalisationCode":"error.msg.invalid.file.extension","args":[]}]}"
+2025-08-04 11:14:36.998 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Response body: {"developerMessage":"Request was understood but caused a domain rule violation.","httpStatusCode":"403","defaultUserMessage":"Errors contain reason for domain rule violation.","userMessageGlobalisationCode":"validation.msg.domain.rule.violation","errors":[{"defaultUserMessage":"Uploaded file extension is not recognized.","parameterName":"id","developerMessage":"Uploaded file extension is not recognized.","userMessageGlobalisationCode":"error.msg.invalid.file.extension","args":[]}]}
+2025-08-04 11:14:36.998 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Request details: endpoint=glaccounts/uploadtemplate
+2025-08-04 11:14:36.998 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Error details from API: {"developerMessage":"Request was understood but caused a domain rule violation.","httpStatusCode":"403","defaultUserMessage":"Errors contain reason for domain rule violation.","userMessageGlobalisationCode":"validation.msg.domain.rule.violation","errors":[{"defaultUserMessage":"Uploaded file extension is not recognized.","parameterName":"id","developerMessage":"Uploaded file extension is not recognized.","userMessageGlobalisationCode":"error.msg.invalid.file.extension","args":[]}]}
+2025-08-04 11:14:36.998  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Processing file: data/SavingsTransactions.xlsx with endpoint: savingsaccounts/transactions/uploadtemplate
+2025-08-04 11:14:36.998  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Using original file directly: /home/hans-chia/dev/fineract-setup-app/src/main/resources/data/SavingsTransactions.xlsx
+2025-08-04 11:14:36.998  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Processing file: SavingsTransactions.xlsx
+2025-08-04 11:14:36.998  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Uploading file: SavingsTransactions.xlsx (original: data/SavingsTransactions.xlsx) to endpoint: savingsaccounts/transactions/uploadtemplate
+2025-08-04 11:14:36.998  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Validating Excel file using Apache POI
+2025-08-04 11:14:37.018  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Excel file contains 1 sheets
+2025-08-04 11:14:37.018  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Sheet 0: 'SavingsTransaction' contains 5 rows
+2025-08-04 11:14:37.018  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Excel file validation successful
+2025-08-04 11:14:37.019  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : File extension: .xlsx
+2025-08-04 11:14:37.019  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Setting Content-Disposition filename: SavingsTransactions.xlsx
+2025-08-04 11:14:37.019  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Content-Type being used: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+2025-08-04 11:14:37.019  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Sending request to: https://localhost/fineract-provider/api/v1/savingsaccounts/transactions/uploadtemplate
+2025-08-04 11:14:37.020  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: SavingsTransactions.xlsx
+2025-08-04 11:14:37.021  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: SavingsTransactions.xlsx
+2025-08-04 11:14:37.021  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: SavingsTransactions.xlsx
+2025-08-04 11:14:37.040 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : HTTP Client Error while uploading data/SavingsTransactions.xlsx: 403 : "{"developerMessage":"Request was understood but caused a domain rule violation.","httpStatusCode":"403","defaultUserMessage":"Errors contain reason for domain rule violation.","userMessageGlobalisationCode":"validation.msg.domain.rule.violation","errors":[{"defaultUserMessage":"Uploaded file extension is not recognized.","parameterName":"id","developerMessage":"Uploaded file extension is not recognized.","userMessageGlobalisationCode":"error.msg.invalid.file.extension","args":[]}]}"
+2025-08-04 11:14:37.040 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Response body: {"developerMessage":"Request was understood but caused a domain rule violation.","httpStatusCode":"403","defaultUserMessage":"Errors contain reason for domain rule violation.","userMessageGlobalisationCode":"validation.msg.domain.rule.violation","errors":[{"defaultUserMessage":"Uploaded file extension is not recognized.","parameterName":"id","developerMessage":"Uploaded file extension is not recognized.","userMessageGlobalisationCode":"error.msg.invalid.file.extension","args":[]}]}
+2025-08-04 11:14:37.040 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Request details: endpoint=savingsaccounts/transactions/uploadtemplate
+2025-08-04 11:14:37.040 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Error details from API: {"developerMessage":"Request was understood but caused a domain rule violation.","httpStatusCode":"403","defaultUserMessage":"Errors contain reason for domain rule violation.","userMessageGlobalisationCode":"validation.msg.domain.rule.violation","errors":[{"defaultUserMessage":"Uploaded file extension is not recognized.","parameterName":"id","developerMessage":"Uploaded file extension is not recognized.","userMessageGlobalisationCode":"error.msg.invalid.file.extension","args":[]}]}
+2025-08-04 11:14:37.040  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Processing file: data/Staff.xlsx with endpoint: staff/uploadtemplate
+2025-08-04 11:14:37.041  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Using original file directly: /home/hans-chia/dev/fineract-setup-app/src/main/resources/data/Staff.xlsx
+2025-08-04 11:14:37.041  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Processing file: Staff.xlsx
+2025-08-04 11:14:37.041  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Uploading file: Staff.xlsx (original: data/Staff.xlsx) to endpoint: staff/uploadtemplate
+2025-08-04 11:14:37.041  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Validating Excel file using Apache POI
+2025-08-04 11:14:37.059  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Excel file contains 1 sheets
+2025-08-04 11:14:37.060  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Sheet 0: 'Employee' contains 3 rows
+2025-08-04 11:14:37.060  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Excel file validation successful
+2025-08-04 11:14:37.060  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : File extension: .xlsx
+2025-08-04 11:14:37.060  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Setting Content-Disposition filename: Staff.xlsx
+2025-08-04 11:14:37.060  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Content-Type being used: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+2025-08-04 11:14:37.060  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Sending request to: https://localhost/fineract-provider/api/v1/staff/uploadtemplate
+2025-08-04 11:14:37.062  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: Staff.xlsx
+2025-08-04 11:14:37.062  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: Staff.xlsx
+2025-08-04 11:14:37.062  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: Staff.xlsx
+2025-08-04 11:14:37.081 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : HTTP Client Error while uploading data/Staff.xlsx: 403 : "{"developerMessage":"Request was understood but caused a domain rule violation.","httpStatusCode":"403","defaultUserMessage":"Errors contain reason for domain rule violation.","userMessageGlobalisationCode":"validation.msg.domain.rule.violation","errors":[{"defaultUserMessage":"Uploaded file extension is not recognized.","parameterName":"id","developerMessage":"Uploaded file extension is not recognized.","userMessageGlobalisationCode":"error.msg.invalid.file.extension","args":[]}]}"
+2025-08-04 11:14:37.081 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Response body: {"developerMessage":"Request was understood but caused a domain rule violation.","httpStatusCode":"403","defaultUserMessage":"Errors contain reason for domain rule violation.","userMessageGlobalisationCode":"validation.msg.domain.rule.violation","errors":[{"defaultUserMessage":"Uploaded file extension is not recognized.","parameterName":"id","developerMessage":"Uploaded file extension is not recognized.","userMessageGlobalisationCode":"error.msg.invalid.file.extension","args":[]}]}
+2025-08-04 11:14:37.081 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Request details: endpoint=staff/uploadtemplate
+2025-08-04 11:14:37.081 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Error details from API: {"developerMessage":"Request was understood but caused a domain rule violation.","httpStatusCode":"403","defaultUserMessage":"Errors contain reason for domain rule violation.","userMessageGlobalisationCode":"validation.msg.domain.rule.violation","errors":[{"defaultUserMessage":"Uploaded file extension is not recognized.","parameterName":"id","developerMessage":"Uploaded file extension is not recognized.","userMessageGlobalisationCode":"error.msg.invalid.file.extension","args":[]}]}
+2025-08-04 11:14:37.081  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Processing file: data/Offices.xlsx with endpoint: offices/uploadtemplate
+2025-08-04 11:14:37.082  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Using original file directly: /home/hans-chia/dev/fineract-setup-app/src/main/resources/data/Offices.xlsx
+2025-08-04 11:14:37.082  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Processing file: Offices.xlsx
+2025-08-04 11:14:37.082  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Uploading file: Offices.xlsx (original: data/Offices.xlsx) to endpoint: offices/uploadtemplate
+2025-08-04 11:14:37.082  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Validating Excel file using Apache POI
+2025-08-04 11:14:37.098  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Excel file contains 1 sheets
+2025-08-04 11:14:37.098  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Sheet 0: 'Offices' contains 5 rows
+2025-08-04 11:14:37.098  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Excel file validation successful
+2025-08-04 11:14:37.098  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : File extension: .xlsx
+2025-08-04 11:14:37.098  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Setting Content-Disposition filename: Offices.xlsx
+2025-08-04 11:14:37.098  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Content-Type being used: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+2025-08-04 11:14:37.098  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Sending request to: https://localhost/fineract-provider/api/v1/offices/uploadtemplate
+2025-08-04 11:14:37.099  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: Offices.xlsx
+2025-08-04 11:14:37.100  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: Offices.xlsx
+2025-08-04 11:14:37.100  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: Offices.xlsx
+2025-08-04 11:14:37.118 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : HTTP Client Error while uploading data/Offices.xlsx: 403 : "{"developerMessage":"Request was understood but caused a domain rule violation.","httpStatusCode":"403","defaultUserMessage":"Errors contain reason for domain rule violation.","userMessageGlobalisationCode":"validation.msg.domain.rule.violation","errors":[{"defaultUserMessage":"Uploaded file extension is not recognized.","parameterName":"id","developerMessage":"Uploaded file extension is not recognized.","userMessageGlobalisationCode":"error.msg.invalid.file.extension","args":[]}]}"
+2025-08-04 11:14:37.118 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Response body: {"developerMessage":"Request was understood but caused a domain rule violation.","httpStatusCode":"403","defaultUserMessage":"Errors contain reason for domain rule violation.","userMessageGlobalisationCode":"validation.msg.domain.rule.violation","errors":[{"defaultUserMessage":"Uploaded file extension is not recognized.","parameterName":"id","developerMessage":"Uploaded file extension is not recognized.","userMessageGlobalisationCode":"error.msg.invalid.file.extension","args":[]}]}
+2025-08-04 11:14:37.118 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Request details: endpoint=offices/uploadtemplate
+2025-08-04 11:14:37.118 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Error details from API: {"developerMessage":"Request was understood but caused a domain rule violation.","httpStatusCode":"403","defaultUserMessage":"Errors contain reason for domain rule violation.","userMessageGlobalisationCode":"validation.msg.domain.rule.violation","errors":[{"defaultUserMessage":"Uploaded file extension is not recognized.","parameterName":"id","developerMessage":"Uploaded file extension is not recognized.","userMessageGlobalisationCode":"error.msg.invalid.file.extension","args":[]}]}
+2025-08-04 11:14:37.119  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Processing file: data/SavingsProducts.xlsx with endpoint: savingsproducts
+2025-08-04 11:14:37.119  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Using original file directly: /home/hans-chia/dev/fineract-setup-app/src/main/resources/data/SavingsProducts.xlsx
+2025-08-04 11:14:37.119  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Processing file: SavingsProducts.xlsx
+2025-08-04 11:14:37.119  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Uploading file: SavingsProducts.xlsx (original: data/SavingsProducts.xlsx) to endpoint: savingsproducts
+2025-08-04 11:14:37.119  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Validating Excel file using Apache POI
+2025-08-04 11:14:37.134  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Excel file contains 1 sheets
+2025-08-04 11:14:37.134  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Sheet 0: 'SavingsAccounts' contains 4 rows
+2025-08-04 11:14:37.134  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Excel file validation successful
+2025-08-04 11:14:37.134  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : File extension: .xlsx
+2025-08-04 11:14:37.134  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Setting Content-Disposition filename: SavingsProducts.xlsx
+2025-08-04 11:14:37.135  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Content-Type being used: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+2025-08-04 11:14:37.135  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Sending request to: https://localhost/fineract-provider/api/v1/savingsproducts
+2025-08-04 11:14:37.136  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: SavingsProducts.xlsx
+2025-08-04 11:14:37.136  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: SavingsProducts.xlsx
+2025-08-04 11:14:37.136  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: SavingsProducts.xlsx
+2025-08-04 11:14:37.145 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : HTTP Client Error while uploading data/SavingsProducts.xlsx: 415 : "<!doctype html><html lang="en"><head><title>HTTP Status 415 – Unsupported Media Type</title><style type="text/css">body {font-family:Tahoma,Arial,sans-serif;} h1, h2, h3, b {color:white;background-color:#525D76;} h1 {font-size:22px;} h2 {font-size:16px;} h3 {font-size:14px;} p {font-size:12px;} a {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 415 – Unsupported Media Type</h1></body></html>"
+2025-08-04 11:14:37.146 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Response body: <!doctype html><html lang="en"><head><title>HTTP Status 415 – Unsupported Media Type</title><style type="text/css">body {font-family:Tahoma,Arial,sans-serif;} h1, h2, h3, b {color:white;background-color:#525D76;} h1 {font-size:22px;} h2 {font-size:16px;} h3 {font-size:14px;} p {font-size:12px;} a {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 415 – Unsupported Media Type</h1></body></html>
+2025-08-04 11:14:37.146 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Request details: endpoint=savingsproducts
+2025-08-04 11:14:37.146  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Processing file: data/LoanRepayments.xlsx with endpoint: loans/repayments/uploadtemplate
+2025-08-04 11:14:37.147  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Using original file directly: /home/hans-chia/dev/fineract-setup-app/src/main/resources/data/LoanRepayments.xlsx
+2025-08-04 11:14:37.147  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Processing file: LoanRepayments.xlsx
+2025-08-04 11:14:37.147  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Uploading file: LoanRepayments.xlsx (original: data/LoanRepayments.xlsx) to endpoint: loans/repayments/uploadtemplate
+2025-08-04 11:14:37.147  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Validating Excel file using Apache POI
+2025-08-04 11:14:37.161  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Excel file contains 1 sheets
+2025-08-04 11:14:37.161  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Sheet 0: 'LoanRepayment' contains 4 rows
+2025-08-04 11:14:37.161  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Excel file validation successful
+2025-08-04 11:14:37.162  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : File extension: .xlsx
+2025-08-04 11:14:37.162  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Setting Content-Disposition filename: LoanRepayments.xlsx
+2025-08-04 11:14:37.162  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Content-Type being used: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+2025-08-04 11:14:37.162  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Sending request to: https://localhost/fineract-provider/api/v1/loans/repayments/uploadtemplate
+2025-08-04 11:14:37.163  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: LoanRepayments.xlsx
+2025-08-04 11:14:37.163  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: LoanRepayments.xlsx
+2025-08-04 11:14:37.163  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: LoanRepayments.xlsx
+2025-08-04 11:14:37.177 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : HTTP Client Error while uploading data/LoanRepayments.xlsx: 403 : "{"developerMessage":"Request was understood but caused a domain rule violation.","httpStatusCode":"403","defaultUserMessage":"Errors contain reason for domain rule violation.","userMessageGlobalisationCode":"validation.msg.domain.rule.violation","errors":[{"defaultUserMessage":"Uploaded file extension is not recognized.","parameterName":"id","developerMessage":"Uploaded file extension is not recognized.","userMessageGlobalisationCode":"error.msg.invalid.file.extension","args":[]}]}"
+2025-08-04 11:14:37.177 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Response body: {"developerMessage":"Request was understood but caused a domain rule violation.","httpStatusCode":"403","defaultUserMessage":"Errors contain reason for domain rule violation.","userMessageGlobalisationCode":"validation.msg.domain.rule.violation","errors":[{"defaultUserMessage":"Uploaded file extension is not recognized.","parameterName":"id","developerMessage":"Uploaded file extension is not recognized.","userMessageGlobalisationCode":"error.msg.invalid.file.extension","args":[]}]}
+2025-08-04 11:14:37.177 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Request details: endpoint=loans/repayments/uploadtemplate
+2025-08-04 11:14:37.177 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Error details from API: {"developerMessage":"Request was understood but caused a domain rule violation.","httpStatusCode":"403","defaultUserMessage":"Errors contain reason for domain rule violation.","userMessageGlobalisationCode":"validation.msg.domain.rule.violation","errors":[{"defaultUserMessage":"Uploaded file extension is not recognized.","parameterName":"id","developerMessage":"Uploaded file extension is not recognized.","userMessageGlobalisationCode":"error.msg.invalid.file.extension","args":[]}]}
+2025-08-04 11:14:37.177  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Processing file: data/Clients.xlsx with endpoint: clients/uploadtemplate
+2025-08-04 11:14:37.178  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Using original file directly: /home/hans-chia/dev/fineract-setup-app/src/main/resources/data/Clients.xlsx
+2025-08-04 11:14:37.178  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Processing file: Clients.xlsx
+2025-08-04 11:14:37.178  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Uploading file: Clients.xlsx (original: data/Clients.xlsx) to endpoint: clients/uploadtemplate
+2025-08-04 11:14:37.178  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Validating Excel file using Apache POI
+2025-08-04 11:14:37.193  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Excel file contains 1 sheets
+2025-08-04 11:14:37.193  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Sheet 0: 'ClientEntity' contains 4 rows
+2025-08-04 11:14:37.193  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Excel file validation successful
+2025-08-04 11:14:37.193  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : File extension: .xlsx
+2025-08-04 11:14:37.194  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Setting Content-Disposition filename: Clients.xlsx
+2025-08-04 11:14:37.194  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Content-Type being used: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+2025-08-04 11:14:37.194  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Sending request to: https://localhost/fineract-provider/api/v1/clients/uploadtemplate
+2025-08-04 11:14:37.195  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: Clients.xlsx
+2025-08-04 11:14:37.195  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: Clients.xlsx
+2025-08-04 11:14:37.195  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : FileSystemResource returning filename: Clients.xlsx
+2025-08-04 11:14:37.207 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : HTTP Client Error while uploading data/Clients.xlsx: 403 : "{"developerMessage":"Request was understood but caused a domain rule violation.","httpStatusCode":"403","defaultUserMessage":"Errors contain reason for domain rule violation.","userMessageGlobalisationCode":"validation.msg.domain.rule.violation","errors":[{"defaultUserMessage":"One or more of the given parameters not found","parameterName":"id","developerMessage":"One or more of the given parameters not found","userMessageGlobalisationCode":"error.msg.null","args":[]}]}"
+2025-08-04 11:14:37.207 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Response body: {"developerMessage":"Request was understood but caused a domain rule violation.","httpStatusCode":"403","defaultUserMessage":"Errors contain reason for domain rule violation.","userMessageGlobalisationCode":"validation.msg.domain.rule.violation","errors":[{"defaultUserMessage":"One or more of the given parameters not found","parameterName":"id","developerMessage":"One or more of the given parameters not found","userMessageGlobalisationCode":"error.msg.null","args":[]}]}
+2025-08-04 11:14:37.207 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Request details: endpoint=clients/uploadtemplate
+2025-08-04 11:14:37.207 ERROR 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Error details from API: {"developerMessage":"Request was understood but caused a domain rule violation.","httpStatusCode":"403","defaultUserMessage":"Errors contain reason for domain rule violation.","userMessageGlobalisationCode":"validation.msg.domain.rule.violation","errors":[{"defaultUserMessage":"One or more of the given parameters not found","parameterName":"id","developerMessage":"One or more of the given parameters not found","userMessageGlobalisationCode":"error.msg.null","args":[]}]}
+2025-08-04 11:14:37.207  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Microfinance setup completed. Success: 0, Failures: 9
+2025-08-04 11:14:37.207  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : No files were processed successfully. This may be expected in test environments.
+2025-08-04 11:14:37.207  INFO 870884 --- [           main] c.e.f.service.MicrofinanceInit           : Application will now exit gracefully with status: SUCCESS
+2025-08-04 11:14:38.215  INFO 870884 --- [       Thread-1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
