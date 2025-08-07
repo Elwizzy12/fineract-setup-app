@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- Include Spring Boot defaults -->
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    
+    <!-- Suppress specific POI warnings -->
+    <logger name="org.apache.poi.POIDocument" level="ERROR" />
+    
+    <!-- Keep other loggers at their default levels -->
+</configuration>
