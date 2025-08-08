@@ -1,7 +1,5 @@
 package com.example.fineractsetup.service;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,7 +13,6 @@ import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
 
-import java.io.IOException;
 import java.util.Collections;
 
 /**
@@ -26,30 +23,13 @@ public class FineractApiService {
     private static final Logger logger = LoggerFactory.getLogger(FineractApiService.class);
 
     private final RestTemplate restTemplate;
-    private final ObjectMapper objectMapper;
+    private final KeycloakAuthService keycloakAuthService;
 
     @Value("${fineract.api.url}")
     private String fineractUrl;
 
     @Value("${fineract.api.tenant}")
     private String tenantId;
-
-    @Value("${fineract.api.username}")
-    private String username;
-
-    @Value("${fineract.api.password}")
-    private String password;
-    @Value("${keycloak.url}")
-    private String keycloakUrl;
-
-    @Value("${keycloak.grant-type}")
-    private String grantType;
-
-    @Value("${keycloak.client-id}")
-    private String clientId;
-    
-    @Value("${keycloak.client-secret}")
-    private String clientSecret;
 
     @Value("${fineract.api.locale:en}")
     private String locale;
@@ -69,54 +49,9 @@ public class FineractApiService {
     @Value("${retry.max-interval:10000}")
     private long maxRetryInterval;
 
-    private String accessToken;
-
-    public FineractApiService(RestTemplate restTemplate, ObjectMapper objectMapper) {
+    public FineractApiService(RestTemplate restTemplate, KeycloakAuthService keycloakAuthService) {
         this.restTemplate = restTemplate;
-        this.objectMapper = objectMapper;
-    }
-
-    /**
-     * Authenticates with Keycloak and retrieves an access token
-     *
-     * @return true if authentication is successful, false otherwise
-     */
-    private boolean authenticate() {
-        logger.info("Authenticating with Keycloak...");
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-
-        MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
-        body.add("grant_type", grantType);
-        body.add("client_id", clientId);
-        body.add("client_secret", clientSecret);
-        body.add("username", username);
-        body.add("password", password);
-
-        HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(body, headers);
-
-        try {
-            ResponseEntity<String> response = restTemplate.exchange(
-                    keycloakUrl, HttpMethod.POST, requestEntity, String.class);
-
-            if (response.getStatusCode().is2xxSuccessful()) {
-                JsonNode responseBody = objectMapper.readTree(response.getBody());
-                this.accessToken = responseBody.get("access_token").asText();
-                logger.info("Access Token: {}", this.accessToken);
-                logger.info("Successfully authenticated with Keycloak");
-                return true;
-            } else {
-                logger.error("Failed to authenticate with Keycloak. Status: {}", response.getStatusCode());
-                return false;
-            }
-        } catch (IOException e) {
-            logger.error("Error parsing Keycloak response: {}", e.getMessage());
-            return false;
-        } catch (HttpClientErrorException e) {
-            logger.error("HTTP Client Error during authentication: {}", e.getMessage());
-            return false;
-        }
+        this.keycloakAuthService = keycloakAuthService;
     }
 
     /**
@@ -128,8 +63,9 @@ public class FineractApiService {
      * @return true if the upload was successful, false otherwise
      */
     public boolean uploadTemplate(byte[] fileBytes, String endpoint, String fileName) {
-        if (accessToken == null && !authenticate()) {
-            logger.error("Authentication failed. Cannot upload template.");
+        String accessToken = keycloakAuthService.getAccessToken();
+        logger.info("Access token: {}", accessToken);
+        if (accessToken == null) {
             return false;
         }
 
@@ -210,7 +146,7 @@ public class FineractApiService {
                     logger.info("Adding legalFormType parameter for client template upload");
                 }
 
-                logger.info("Sending request to: {}", url);
+                logger.info("Sending request to: {}", url); 
                 
                 // Make the request
                 ResponseEntity<String> response = restTemplate.exchange(
