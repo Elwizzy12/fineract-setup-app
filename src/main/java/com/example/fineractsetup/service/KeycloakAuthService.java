@@ -58,7 +58,6 @@ public class KeycloakAuthService {
         if (accessToken == null && !authenticate()) {
             logger.error("Authentication failed. Unable to retrieve access token.");
             return null;
-           }
         }
         return accessToken;
     }
